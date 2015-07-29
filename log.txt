@@ -1,0 +1,548 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\Econometrics Project\jem177_project\log.txt
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}27 Apr 2015, 15:46:34
+{txt}
+{com}. 
+. /* See the relevant files for parts 1 & 2: */
+. do "D:\Econometrics Project\jem177_project\wx.do"
+{txt}
+{com}. clear
+{txt}
+{com}. /* Part 1 */
+. import delimited "D:\Econometrics Project\yelp_dataset_challenge_academic_dataset\506788.csv"
+{res}{err}file D:\Econometrics Project\yelp_dataset_challenge_academic_dataset\506788.csv not found
+{txt}{search r(601):r(601);}
+
+end of do-file
+{search r(601):r(601);}
+
+end of do-file
+
+{search r(601):r(601);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars
+{err}no variables defined
+{txt}{search r(111):r(111);}
+
+{com}. 
+. business_review_count charlotte pittsburgh madison user_review_count wx_tmax
+{err}unrecognized command:  business_review_count
+{txt}{search r(199):r(199);}
+
+{com}. 
+. wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 &
+{err}unrecognized command:  wx_tmin
+{txt}{search r(199):r(199);}
+
+{com}. 
+. wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0)
+{err}unrecognized command:  wx_fog_all
+{txt}{search r(199):r(199);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0)
+{err}wx_snwd not found
+{txt}{search r(111):r(111);}
+
+{com}. use "D:\Econometrics Project\jem177_project\review.dta", clear
+
+. use "D:\Econometrics Project\jem177_project\projectdata.dta", clear
+
+. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   94929
+{txt}{hline 13}{char +}{hline 30}           F( 14, 94914) ={res} 2108.63
+    {txt}   Model {char |} {res} 4689.35095    14  334.953639           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 15077.0234 94914   .15884931           {txt}R-squared     = {res} 0.2372
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.2371
+    {txt}   Total {char |} {res} 19766.3744 94928  .208224911           {txt}Root MSE      = {res} .39856
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 9.51e-06{col 35}{space 2} .0000269{col 46}{space 1}    0.35{col 55}{space 3}0.724{col 63}{space 4}-.0000433{col 76}{space 3} .0000623
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1139515{col 35}{space 2} .0020358{col 46}{space 1}   55.97{col 55}{space 3}0.000{col 63}{space 4} .1099613{col 76}{space 3} .1179417
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0584168{col 35}{space 2}  .001839{col 46}{space 1}  -31.77{col 55}{space 3}0.000{col 63}{space 4}-.0620212{col 76}{space 3}-.0548123
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0516711{col 35}{space 2} .0012559{col 46}{space 1}  -41.14{col 55}{space 3}0.000{col 63}{space 4}-.0541327{col 76}{space 3}-.0492096
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3275493{col 35}{space 2} .0021513{col 46}{space 1}  152.26{col 55}{space 3}0.000{col 63}{space 4} .3233328{col 76}{space 3} .3317658
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000749{col 35}{space 2} 9.47e-06{col 46}{space 1}    7.91{col 55}{space 3}0.000{col 63}{space 4} .0000563{col 76}{space 3} .0000935
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0210618{col 35}{space 2} .0370087{col 46}{space 1}   -0.57{col 55}{space 3}0.569{col 63}{space 4}-.0935984{col 76}{space 3} .0514749
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0243576{col 35}{space 2} .0370386{col 46}{space 1}   -0.66{col 55}{space 3}0.511{col 63}{space 4}-.0969529{col 76}{space 3} .0482377
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0247802{col 35}{space 2} .0371005{col 46}{space 1}   -0.67{col 55}{space 3}0.504{col 63}{space 4}-.0974967{col 76}{space 3} .0479362
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2}  .000042{col 35}{space 2} 3.81e-06{col 46}{space 1}   11.02{col 55}{space 3}0.000{col 63}{space 4} .0000345{col 76}{space 3} .0000495
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000151{col 35}{space 2} .0000423{col 46}{space 1}   -0.36{col 55}{space 3}0.722{col 63}{space 4}-.0000981{col 76}{space 3} .0000679
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000105{col 35}{space 2}  .000043{col 46}{space 1}    0.24{col 55}{space 3}0.807{col 63}{space 4}-.0000738{col 76}{space 3} .0000948
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0002991{col 35}{space 2} .0006344{col 46}{space 1}    0.47{col 55}{space 3}0.637{col 63}{space 4}-.0009443{col 76}{space 3} .0015424
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0012734{col 35}{space 2} .0000696{col 46}{space 1}  -18.29{col 55}{space 3}0.000{col 63}{space 4}-.0014099{col 76}{space 3}-.0011369
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .8475854{col 35}{space 2} .0549898{col 46}{space 1}   15.41{col 55}{space 3}0.000{col 63}{space 4}  .739806{col 76}{space 3} .9553648
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   66212
+{txt}{hline 13}{char +}{hline 30}           F( 14, 66197) ={res} 1048.01
+    {txt}   Model {char |} {res} 2352.90342    14   168.06453           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10615.7187 66197  .160365555           {txt}R-squared     = {res} 0.1814
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1813
+    {txt}   Total {char |} {res} 12968.6221 66211   .19586809           {txt}Root MSE      = {res} .40046
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2}-5.70e-06{col 35}{space 2} .0000323{col 46}{space 1}   -0.18{col 55}{space 3}0.860{col 63}{space 4}-.0000691{col 76}{space 3} .0000577
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1243219{col 35}{space 2} .0025325{col 46}{space 1}   49.09{col 55}{space 3}0.000{col 63}{space 4} .1193582{col 76}{space 3} .1292856
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0674961{col 35}{space 2} .0022779{col 46}{space 1}  -29.63{col 55}{space 3}0.000{col 63}{space 4}-.0719609{col 76}{space 3}-.0630313
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0532104{col 35}{space 2} .0015336{col 46}{space 1}  -34.70{col 55}{space 3}0.000{col 63}{space 4}-.0562162{col 76}{space 3}-.0502046
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3178452{col 35}{space 2} .0031662{col 46}{space 1}  100.39{col 55}{space 3}0.000{col 63}{space 4} .3116395{col 76}{space 3} .3240509
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000639{col 35}{space 2}  .000012{col 46}{space 1}    5.32{col 55}{space 3}0.000{col 63}{space 4} .0000404{col 76}{space 3} .0000875
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0133671{col 35}{space 2} .0462961{col 46}{space 1}   -0.29{col 55}{space 3}0.773{col 63}{space 4}-.1041075{col 76}{space 3} .0773732
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0181344{col 35}{space 2}  .046323{col 46}{space 1}   -0.39{col 55}{space 3}0.695{col 63}{space 4}-.1089274{col 76}{space 3} .0726586
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0195711{col 35}{space 2} .0463965{col 46}{space 1}   -0.42{col 55}{space 3}0.673{col 63}{space 4}-.1105083{col 76}{space 3} .0713661
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2} .0000418{col 35}{space 2} 5.39e-06{col 46}{space 1}    7.75{col 55}{space 3}0.000{col 63}{space 4} .0000312{col 76}{space 3} .0000524
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000343{col 35}{space 2} .0000508{col 46}{space 1}   -0.68{col 55}{space 3}0.500{col 63}{space 4} -.000134{col 76}{space 3} .0000653
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000247{col 35}{space 2} .0000517{col 46}{space 1}    0.48{col 55}{space 3}0.633{col 63}{space 4}-.0000767{col 76}{space 3} .0001261
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012672{col 35}{space 2} .0007577{col 46}{space 1}    1.67{col 55}{space 3}0.094{col 63}{space 4}-.0002179{col 76}{space 3} .0027523
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0010251{col 35}{space 2} .0000839{col 46}{space 1}  -12.21{col 55}{space 3}0.000{col 63}{space 4}-.0011896{col 76}{space 3}-.0008606
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7267415{col 35}{space 2} .0675686{col 46}{space 1}   10.76{col 55}{space 3}0.000{col 63}{space 4} .5943071{col 76}{space 3} .8591759
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F( 15, 65743) ={res}  950.49
+    {txt}   Model {char |} {res} 2280.55759    15  152.037173           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10515.9762 65743  .159955831           {txt}R-squared     = {res} 0.1782
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1780
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .39994
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 2.02e-06{col 35}{space 2} .0000324{col 46}{space 1}    0.06{col 55}{space 3}0.950{col 63}{space 4}-.0000615{col 76}{space 3} .0000655
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1242475{col 35}{space 2} .0025356{col 46}{space 1}   49.00{col 55}{space 3}0.000{col 63}{space 4} .1192776{col 76}{space 3} .1292173
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0674453{col 35}{space 2}  .002293{col 46}{space 1}  -29.41{col 55}{space 3}0.000{col 63}{space 4}-.0719396{col 76}{space 3}-.0629511
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0534558{col 35}{space 2} .0015378{col 46}{space 1}  -34.76{col 55}{space 3}0.000{col 63}{space 4}  -.05647{col 76}{space 3}-.0504417
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3162112{col 35}{space 2} .0032043{col 46}{space 1}   98.68{col 55}{space 3}0.000{col 63}{space 4} .3099307{col 76}{space 3} .3224917
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000604{col 35}{space 2} .0000122{col 46}{space 1}    4.95{col 55}{space 3}0.000{col 63}{space 4} .0000365{col 76}{space 3} .0000843
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0036767{col 35}{space 2} .0025953{col 46}{space 1}    1.42{col 55}{space 3}0.157{col 63}{space 4}-.0014101{col 76}{space 3} .0087635
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0159362{col 35}{space 2} .0474943{col 46}{space 1}   -0.34{col 55}{space 3}0.737{col 63}{space 4} -.109025{col 76}{space 3} .0771526
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0212322{col 35}{space 2} .0475228{col 46}{space 1}   -0.45{col 55}{space 3}0.655{col 63}{space 4} -.114377{col 76}{space 3} .0719126
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0224263{col 35}{space 2} .0475912{col 46}{space 1}   -0.47{col 55}{space 3}0.637{col 63}{space 4}-.1157051{col 76}{space 3} .0708525
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2} .0000412{col 35}{space 2} 5.41e-06{col 46}{space 1}    7.62{col 55}{space 3}0.000{col 63}{space 4} .0000306{col 76}{space 3} .0000518
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000288{col 35}{space 2}  .000051{col 46}{space 1}   -0.56{col 55}{space 3}0.573{col 63}{space 4}-.0001287{col 76}{space 3} .0000711
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000197{col 35}{space 2} .0000519{col 46}{space 1}    0.38{col 55}{space 3}0.705{col 63}{space 4} -.000082{col 76}{space 3} .0001213
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0013056{col 35}{space 2} .0007592{col 46}{space 1}    1.72{col 55}{space 3}0.085{col 63}{space 4}-.0001824{col 76}{space 3} .0027937
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0010232{col 35}{space 2} .0000841{col 46}{space 1}  -12.17{col 55}{space 3}0.000{col 63}{space 4} -.001188{col 76}{space 3}-.0008583
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7276594{col 35}{space 2} .0685585{col 46}{space 1}   10.61{col 55}{space 3}0.000{col 63}{space 4} .5932848{col 76}{space 3}  .862034
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1 & business_attributesdrivethru == 1)
+{txt}note: pittsburgh omitted because of collinearity
+
+      Source {c |}       SS       df       MS              Number of obs ={res}     518
+{txt}{hline 13}{char +}{hline 30}           F( 14,   503) ={res}   23.55
+    {txt}   Model {char |} {res}  70.416352    14  5.02973943           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 107.434613   503  .213587701           {txt}R-squared     = {res} 0.3959
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.3791
+    {txt}   Total {char |} {res} 177.850965   517  .344005736           {txt}Root MSE      = {res} .46216
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} .0001827{col 35}{space 2}  .000434{col 46}{space 1}    0.42{col 55}{space 3}0.674{col 63}{space 4}-.0006701{col 76}{space 3} .0010354
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2}  .122665{col 35}{space 2} .0382696{col 46}{space 1}    3.21{col 55}{space 3}0.001{col 63}{space 4} .0474771{col 76}{space 3} .1978529
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0457772{col 35}{space 2} .0256478{col 46}{space 1}   -1.78{col 55}{space 3}0.075{col 63}{space 4}-.0961671{col 76}{space 3} .0046128
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0779821{col 35}{space 2} .0295001{col 46}{space 1}   -2.64{col 55}{space 3}0.008{col 63}{space 4}-.1359407{col 76}{space 3}-.0200236
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3642054{col 35}{space 2} .0264071{col 46}{space 1}   13.79{col 55}{space 3}0.000{col 63}{space 4} .3123235{col 76}{space 3} .4160872
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0016457{col 35}{space 2}  .002186{col 46}{space 1}    0.75{col 55}{space 3}0.452{col 63}{space 4}-.0026492{col 76}{space 3} .0059406
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2}-.0582087{col 35}{space 2} .0888746{col 46}{space 1}   -0.65{col 55}{space 3}0.513{col 63}{space 4}-.2328197{col 76}{space 3} .1164024
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0414168{col 35}{space 2} .0783681{col 46}{space 1}   -0.53{col 55}{space 3}0.597{col 63}{space 4}-.1953859{col 76}{space 3} .1125523
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}        0{col 35}{txt}  (omitted)
+{space 14}madison {c |}{col 23}{res}{space 2}-.1779402{col 35}{space 2} .0987542{col 46}{space 1}   -1.80{col 55}{space 3}0.072{col 63}{space 4}-.3719617{col 76}{space 3} .0160814
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2} .0000302{col 35}{space 2}  .000027{col 46}{space 1}    1.12{col 55}{space 3}0.263{col 63}{space 4}-.0000228{col 76}{space 3} .0000833
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2} .0000951{col 35}{space 2} .0006988{col 46}{space 1}    0.14{col 55}{space 3}0.892{col 63}{space 4}-.0012778{col 76}{space 3}  .001468
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2}-.0002236{col 35}{space 2} .0006903{col 46}{space 1}   -0.32{col 55}{space 3}0.746{col 63}{space 4}-.0015797{col 76}{space 3} .0011326
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2}-.0026282{col 35}{space 2} .0104068{col 46}{space 1}   -0.25{col 55}{space 3}0.801{col 63}{space 4}-.0230743{col 76}{space 3} .0178179
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0037662{col 35}{space 2} .0012414{col 46}{space 1}   -3.03{col 55}{space 3}0.003{col 63}{space 4}-.0062052{col 76}{space 3}-.0013272
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} 2.348899{col 35}{space 2} .7936709{col 46}{space 1}    2.96{col 55}{space 3}0.003{col 63}{space 4}  .789581{col 76}{space 3} 3.908218
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F( 15, 65743) ={res}  950.49
+    {txt}   Model {char |} {res} 2280.55759    15  152.037173           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10515.9762 65743  .159955831           {txt}R-squared     = {res} 0.1782
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1780
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .39994
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 2.02e-06{col 35}{space 2} .0000324{col 46}{space 1}    0.06{col 55}{space 3}0.950{col 63}{space 4}-.0000615{col 76}{space 3} .0000655
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1242475{col 35}{space 2} .0025356{col 46}{space 1}   49.00{col 55}{space 3}0.000{col 63}{space 4} .1192776{col 76}{space 3} .1292173
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0674453{col 35}{space 2}  .002293{col 46}{space 1}  -29.41{col 55}{space 3}0.000{col 63}{space 4}-.0719396{col 76}{space 3}-.0629511
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0534558{col 35}{space 2} .0015378{col 46}{space 1}  -34.76{col 55}{space 3}0.000{col 63}{space 4}  -.05647{col 76}{space 3}-.0504417
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3162112{col 35}{space 2} .0032043{col 46}{space 1}   98.68{col 55}{space 3}0.000{col 63}{space 4} .3099307{col 76}{space 3} .3224917
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000604{col 35}{space 2} .0000122{col 46}{space 1}    4.95{col 55}{space 3}0.000{col 63}{space 4} .0000365{col 76}{space 3} .0000843
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0036767{col 35}{space 2} .0025953{col 46}{space 1}    1.42{col 55}{space 3}0.157{col 63}{space 4}-.0014101{col 76}{space 3} .0087635
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0159362{col 35}{space 2} .0474943{col 46}{space 1}   -0.34{col 55}{space 3}0.737{col 63}{space 4} -.109025{col 76}{space 3} .0771526
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0212322{col 35}{space 2} .0475228{col 46}{space 1}   -0.45{col 55}{space 3}0.655{col 63}{space 4} -.114377{col 76}{space 3} .0719126
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0224263{col 35}{space 2} .0475912{col 46}{space 1}   -0.47{col 55}{space 3}0.637{col 63}{space 4}-.1157051{col 76}{space 3} .0708525
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2} .0000412{col 35}{space 2} 5.41e-06{col 46}{space 1}    7.62{col 55}{space 3}0.000{col 63}{space 4} .0000306{col 76}{space 3} .0000518
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000288{col 35}{space 2}  .000051{col 46}{space 1}   -0.56{col 55}{space 3}0.573{col 63}{space 4}-.0001287{col 76}{space 3} .0000711
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000197{col 35}{space 2} .0000519{col 46}{space 1}    0.38{col 55}{space 3}0.705{col 63}{space 4} -.000082{col 76}{space 3} .0001213
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0013056{col 35}{space 2} .0007592{col 46}{space 1}    1.72{col 55}{space 3}0.085{col 63}{space 4}-.0001824{col 76}{space 3} .0027937
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0010232{col 35}{space 2} .0000841{col 46}{space 1}  -12.17{col 55}{space 3}0.000{col 63}{space 4} -.001188{col 76}{space 3}-.0008583
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7276594{col 35}{space 2} .0685585{col 46}{space 1}   10.61{col 55}{space 3}0.000{col 63}{space 4} .5932848{col 76}{space 3}  .862034
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madison user_review_count wx_tmax wx_tmin if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F( 13, 65745) ={res} 1082.72
+    {txt}   Model {char |} {res} 2256.52123    13  173.578556           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10540.0126 65745  .160316565           {txt}R-squared     = {res} 0.1763
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1762
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res}  .4004
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2}-.0000278{col 35}{space 2} .0000323{col 46}{space 1}   -0.86{col 55}{space 3}0.391{col 63}{space 4}-.0000911{col 76}{space 3} .0000356
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2}  .122595{col 35}{space 2} .0025349{col 46}{space 1}   48.36{col 55}{space 3}0.000{col 63}{space 4} .1176266{col 76}{space 3} .1275634
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0667977{col 35}{space 2}  .002295{col 46}{space 1}  -29.11{col 55}{space 3}0.000{col 63}{space 4}-.0712958{col 76}{space 3}-.0622996
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0518503{col 35}{space 2} .0015338{col 46}{space 1}  -33.80{col 55}{space 3}0.000{col 63}{space 4}-.0548566{col 76}{space 3}-.0488439
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3132766{col 35}{space 2} .0031985{col 46}{space 1}   97.94{col 55}{space 3}0.000{col 63}{space 4} .3070075{col 76}{space 3} .3195456
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000638{col 35}{space 2} .0000122{col 46}{space 1}    5.23{col 55}{space 3}0.000{col 63}{space 4} .0000399{col 76}{space 3} .0000878
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0033496{col 35}{space 2}  .002598{col 46}{space 1}    1.29{col 55}{space 3}0.197{col 63}{space 4}-.0017425{col 76}{space 3} .0084417
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0739607{col 35}{space 2} .0473086{col 46}{space 1}   -1.56{col 55}{space 3}0.118{col 63}{space 4}-.1666855{col 76}{space 3} .0187642
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0787828{col 35}{space 2} .0473408{col 46}{space 1}   -1.66{col 55}{space 3}0.096{col 63}{space 4}-.1715708{col 76}{space 3} .0140052
+{txt}{space 14}madison {c |}{col 23}{res}{space 2} -.079701{col 35}{space 2} .0474122{col 46}{space 1}   -1.68{col 55}{space 3}0.093{col 63}{space 4}-.1726289{col 76}{space 3} .0132269
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2} .0000496{col 35}{space 2} 5.37e-06{col 46}{space 1}    9.22{col 55}{space 3}0.000{col 63}{space 4}  .000039{col 76}{space 3} .0000601
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000382{col 35}{space 2}  .000051{col 46}{space 1}   -0.75{col 55}{space 3}0.454{col 63}{space 4}-.0001381{col 76}{space 3} .0000618
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2}  .000018{col 35}{space 2} .0000519{col 46}{space 1}    0.35{col 55}{space 3}0.729{col 63}{space 4}-.0000838{col 76}{space 3} .0001197
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .1505407{col 35}{space 2} .0492472{col 46}{space 1}    3.06{col 55}{space 3}0.002{col 63}{space 4} .0540161{col 76}{space 3} .2470653
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madisonwx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+{err}variable madisonwx_tmax not found
+{txt}{search r(111):r(111);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange charlotte pittsburgh madison wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F( 14, 65744) ={res} 1013.36
+    {txt}   Model {char |} {res} 2271.27471    14  162.233908           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10525.2591 65744  .160094595           {txt}R-squared     = {res} 0.1775
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1773
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40012
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 5.92e-06{col 35}{space 2} .0000324{col 46}{space 1}    0.18{col 55}{space 3}0.855{col 63}{space 4}-.0000576{col 76}{space 3} .0000694
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1257075{col 35}{space 2} .0025295{col 46}{space 1}   49.70{col 55}{space 3}0.000{col 63}{space 4} .1207497{col 76}{space 3} .1306653
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0668588{col 35}{space 2} .0022927{col 46}{space 1}  -29.16{col 55}{space 3}0.000{col 63}{space 4}-.0713525{col 76}{space 3}-.0623651
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0524148{col 35}{space 2} .0015324{col 46}{space 1}  -34.20{col 55}{space 3}0.000{col 63}{space 4}-.0554183{col 76}{space 3}-.0494112
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3154741{col 35}{space 2} .0032043{col 46}{space 1}   98.45{col 55}{space 3}0.000{col 63}{space 4} .3091937{col 76}{space 3} .3217544
+{txt}business_review_count {c |}{col 23}{res}{space 2}  .000059{col 35}{space 2} .0000122{col 46}{space 1}    4.83{col 55}{space 3}0.000{col 63}{space 4} .0000351{col 76}{space 3} .0000829
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0029096{col 35}{space 2} .0025945{col 46}{space 1}    1.12{col 55}{space 3}0.262{col 63}{space 4}-.0021755{col 76}{space 3} .0079947
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0211047{col 35}{space 2}   .04751{col 46}{space 1}   -0.44{col 55}{space 3}0.657{col 63}{space 4}-.1142243{col 76}{space 3}  .072015
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2} -.027894{col 35}{space 2} .0475354{col 46}{space 1}   -0.59{col 55}{space 3}0.557{col 63}{space 4}-.1210634{col 76}{space 3} .0652753
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0301293{col 35}{space 2} .0476011{col 46}{space 1}   -0.63{col 55}{space 3}0.527{col 63}{space 4}-.1234275{col 76}{space 3} .0631689
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000294{col 35}{space 2}  .000051{col 46}{space 1}   -0.58{col 55}{space 3}0.564{col 63}{space 4}-.0001294{col 76}{space 3} .0000705
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000189{col 35}{space 2} .0000519{col 46}{space 1}    0.36{col 55}{space 3}0.715{col 63}{space 4}-.0000828{col 76}{space 3} .0001206
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012273{col 35}{space 2} .0007595{col 46}{space 1}    1.62{col 55}{space 3}0.106{col 63}{space 4}-.0002613{col 76}{space 3} .0027158
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0011055{col 35}{space 2} .0000834{col 46}{space 1}  -13.25{col 55}{space 3}0.000{col 63}{space 4}-.0012691{col 76}{space 3}-.0009419
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2}  .794328{col 35}{space 2} .0680271{col 46}{space 1}   11.68{col 55}{space 3}0.000{col 63}{space 4} .6609948{col 76}{space 3} .9276611
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F( 11, 65747) ={res} 1289.18
+    {txt}   Model {char |} {res} 2270.38167    11  206.398334           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10526.1521 65747  .160100873           {txt}R-squared     = {res} 0.1774
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1773
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40013
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 4.11e-06{col 35}{space 2} .0000324{col 46}{space 1}    0.13{col 55}{space 3}0.899{col 63}{space 4}-.0000593{col 76}{space 3} .0000676
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1255791{col 35}{space 2} .0025287{col 46}{space 1}   49.66{col 55}{space 3}0.000{col 63}{space 4} .1206228{col 76}{space 3} .1305354
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0666752{col 35}{space 2} .0022914{col 46}{space 1}  -29.10{col 55}{space 3}0.000{col 63}{space 4}-.0711663{col 76}{space 3}-.0621841
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0524537{col 35}{space 2} .0015323{col 46}{space 1}  -34.23{col 55}{space 3}0.000{col 63}{space 4}-.0554571{col 76}{space 3}-.0494503
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3151623{col 35}{space 2} .0032013{col 46}{space 1}   98.45{col 55}{space 3}0.000{col 63}{space 4} .3088878{col 76}{space 3} .3214369
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000589{col 35}{space 2} .0000122{col 46}{space 1}    4.83{col 55}{space 3}0.000{col 63}{space 4}  .000035{col 76}{space 3} .0000829
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0028202{col 35}{space 2} .0025912{col 46}{space 1}    1.09{col 55}{space 3}0.276{col 63}{space 4}-.0022585{col 76}{space 3} .0078989
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2} .0000117{col 35}{space 2} .0000475{col 46}{space 1}    0.25{col 55}{space 3}0.805{col 63}{space 4}-.0000814{col 76}{space 3} .0001049
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2}-.0000185{col 35}{space 2} .0000489{col 46}{space 1}   -0.38{col 55}{space 3}0.705{col 63}{space 4}-.0001145{col 76}{space 3} .0000774
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012148{col 35}{space 2} .0007594{col 46}{space 1}    1.60{col 55}{space 3}0.110{col 63}{space 4}-.0002737{col 76}{space 3} .0027033
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0011093{col 35}{space 2}  .000083{col 46}{space 1}  -13.36{col 55}{space 3}0.000{col 63}{space 4}-.0012719{col 76}{space 3}-.0009466
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7677213{col 35}{space 2}  .053544{col 46}{space 1}   14.34{col 55}{space 3}0.000{col 63}{space 4} .6627751{col 76}{space 3} .8726675
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  9, 65749) ={res} 1575.68
+    {txt}   Model {char |} {res} 2270.34579     9  252.260643           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res}  10526.188 65749  .160096549           {txt}R-squared     = {res} 0.1774
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1773
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40012
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 8.62e-08{col 35}{space 2} .0000312{col 46}{space 1}    0.00{col 55}{space 3}0.998{col 63}{space 4} -.000061{col 76}{space 3} .0000612
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1255707{col 35}{space 2} .0025285{col 46}{space 1}   49.66{col 55}{space 3}0.000{col 63}{space 4} .1206149{col 76}{space 3} .1305265
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0666719{col 35}{space 2} .0022912{col 46}{space 1}  -29.10{col 55}{space 3}0.000{col 63}{space 4}-.0711626{col 76}{space 3}-.0621813
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0524463{col 35}{space 2} .0015322{col 46}{space 1}  -34.23{col 55}{space 3}0.000{col 63}{space 4}-.0554494{col 76}{space 3}-.0494432
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3151482{col 35}{space 2} .0032006{col 46}{space 1}   98.46{col 55}{space 3}0.000{col 63}{space 4} .3088749{col 76}{space 3} .3214214
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000589{col 35}{space 2} .0000122{col 46}{space 1}    4.82{col 55}{space 3}0.000{col 63}{space 4}  .000035{col 76}{space 3} .0000828
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2}  .002824{col 35}{space 2} .0025909{col 46}{space 1}    1.09{col 55}{space 3}0.276{col 63}{space 4}-.0022541{col 76}{space 3} .0079022
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012261{col 35}{space 2}  .000759{col 46}{space 1}    1.62{col 55}{space 3}0.106{col 63}{space 4}-.0002616{col 76}{space 3} .0027138
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0011103{col 35}{space 2} .0000829{col 46}{space 1}  -13.39{col 55}{space 3}0.000{col 63}{space 4}-.0012728{col 76}{space 3}-.0009478
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7694119{col 35}{space 2} .0532541{col 46}{space 1}   14.45{col 55}{space 3}0.000{col 63}{space 4}  .665034{col 76}{space 3} .8737898
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_counterserv business_outdoorseat business_attributesalcohol business_attributesparkinglot business_touristy business_attributeswaiterservice business_attributesparkingstreet business_attributesparkinggarage business_review_count business_attributesgoodforkids business_attributesparkingvalet business_attributestakeout business_reservations business_attributesdelivery business_attributeswifi business_stars business_pricerange business_attributescoatcheck business_attributesmusicdj business_attributeshastv business_attributesdrivethru business_attributesnoiselevel business_attributesattire business_attributesopen24hours charlotte pittsburgh madison user_complimentsplain user_review_count user_complimentscute user_complimentswriter user_complimentshot user_complimentscool user_complimentsprofile user_average_stars user_complimentsmore user_votescool user_complimentslist user_votesfunny user_complimentsphotos user_complimentsfunny user_votesuseful wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_blowing_snow == 0 & wx_dust_ash == 0 & wx_fog_all == 0 & wx_drizzle_freezing == 0 & wx_rain_freezing == 0 & wx_glaze == 0 & wx_hail == 0 & wx_snowing == 0)
+{err}no observations
+{txt}{search r(2000):r(2000);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_counterserv business_outdoorseat business_attributesalcohol business_attributesparkinglot business_touristy business_attributeswaiterservice business_attributesparkingstreet business_attributesparkinggarage business_review_count business_attributesgoodforkids business_attributesparkingvalet business_attributestakeout business_reservations business_attributesdelivery business_attributeswifi business_stars business_pricerange business_attributescoatcheck business_attributesmusicdj business_attributeshastv business_attributesdrivethru business_attributesnoiselevel business_attributesattire business_attributesopen24hours charlotte pittsburgh madison user_complimentsplain user_review_count user_complimentscute user_complimentswriter user_complimentshot user_complimentscool user_complimentsprofile user_average_stars user_complimentsmore user_votescool user_complimentslist user_votesfunny user_complimentsphotos user_complimentsfunny user_votesuseful wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0)
+{err}no observations
+{txt}{search r(2000):r(2000);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_counterserv business_outdoorseat business_attributesalcohol business_attributesparkinglot business_touristy business_attributeswaiterservice business_attributesparkingstreet business_attributesparkinggarage business_review_count business_attributesgoodforkids business_attributesparkingvalet business_attributestakeout business_reservations business_attributesdelivery business_attributeswifi business_stars business_pricerange business_attributescoatcheck business_attributesmusicdj business_attributeshastv business_attributesdrivethru business_attributesnoiselevel business_attributesattire business_attributesopen24hours charlotte pittsburgh madison user_complimentsplain user_review_count user_complimentscute user_complimentswriter user_complimentshot user_complimentscool user_complimentsprofile user_average_stars user_complimentsmore user_votescool user_complimentslist user_votesfunny user_complimentsphotos user_complimentsfunny user_votesuseful wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0)
+{err}no observations
+{txt}{search r(2000):r(2000);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count busine ss_pricerange day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+{err}busine ambiguous abbreviation
+{txt}{search r(111):r(111);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  9, 65749) ={res} 1575.68
+    {txt}   Model {char |} {res} 2270.34579     9  252.260643           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res}  10526.188 65749  .160096549           {txt}R-squared     = {res} 0.1774
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1773
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40012
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 8.62e-08{col 35}{space 2} .0000312{col 46}{space 1}    0.00{col 55}{space 3}0.998{col 63}{space 4} -.000061{col 76}{space 3} .0000612
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1255707{col 35}{space 2} .0025285{col 46}{space 1}   49.66{col 55}{space 3}0.000{col 63}{space 4} .1206149{col 76}{space 3} .1305265
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0666719{col 35}{space 2} .0022912{col 46}{space 1}  -29.10{col 55}{space 3}0.000{col 63}{space 4}-.0711626{col 76}{space 3}-.0621813
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0524463{col 35}{space 2} .0015322{col 46}{space 1}  -34.23{col 55}{space 3}0.000{col 63}{space 4}-.0554494{col 76}{space 3}-.0494432
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3151482{col 35}{space 2} .0032006{col 46}{space 1}   98.46{col 55}{space 3}0.000{col 63}{space 4} .3088749{col 76}{space 3} .3214214
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000589{col 35}{space 2} .0000122{col 46}{space 1}    4.82{col 55}{space 3}0.000{col 63}{space 4}  .000035{col 76}{space 3} .0000828
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2}  .002824{col 35}{space 2} .0025909{col 46}{space 1}    1.09{col 55}{space 3}0.276{col 63}{space 4}-.0022541{col 76}{space 3} .0079022
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012261{col 35}{space 2}  .000759{col 46}{space 1}    1.62{col 55}{space 3}0.106{col 63}{space 4}-.0002616{col 76}{space 3} .0027138
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0011103{col 35}{space 2} .0000829{col 46}{space 1}  -13.39{col 55}{space 3}0.000{col 63}{space 4}-.0012728{col 76}{space 3}-.0009478
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7694119{col 35}{space 2} .0532541{col 46}{space 1}   14.45{col 55}{space 3}0.000{col 63}{space 4}  .665034{col 76}{space 3} .8737898
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  8, 65750) ={res} 1745.48
+    {txt}   Model {char |} {res} 2241.63008     8   280.20376           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10554.9037 65750  .160530855           {txt}R-squared     = {res} 0.1752
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1751
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40066
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} -.000034{col 35}{space 2} .0000311{col 46}{space 1}   -1.09{col 55}{space 3}0.275{col 63}{space 4} -.000095{col 76}{space 3}  .000027
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1240834{col 35}{space 2} .0025294{col 46}{space 1}   49.06{col 55}{space 3}0.000{col 63}{space 4} .1191257{col 76}{space 3} .1290411
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0658121{col 35}{space 2} .0022934{col 46}{space 1}  -28.70{col 55}{space 3}0.000{col 63}{space 4}-.0703071{col 76}{space 3}-.0613171
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2} -.050412{col 35}{space 2} .0015267{col 46}{space 1}  -33.02{col 55}{space 3}0.000{col 63}{space 4}-.0534044{col 76}{space 3}-.0474196
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2}  .311701{col 35}{space 2} .0031946{col 46}{space 1}   97.57{col 55}{space 3}0.000{col 63}{space 4} .3054396{col 76}{space 3} .3179624
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000623{col 35}{space 2} .0000122{col 46}{space 1}    5.10{col 55}{space 3}0.000{col 63}{space 4} .0000384{col 76}{space 3} .0000863
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0022705{col 35}{space 2} .0025941{col 46}{space 1}    0.88{col 55}{space 3}0.381{col 63}{space 4}-.0028139{col 76}{space 3} .0073549
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2}  .001039{col 35}{space 2} .0007599{col 46}{space 1}    1.37{col 55}{space 3}0.172{col 63}{space 4}-.0004505{col 76}{space 3} .0025285
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .0768429{col 35}{space 2} .0127384{col 46}{space 1}    6.03{col 55}{space 3}0.000{col 63}{space 4} .0518757{col 76}{space 3} .1018102
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  7, 65751) ={res} 1994.54
+    {txt}   Model {char |} {res} 2241.32999     7  320.189999           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10555.2038 65751  .160532977           {txt}R-squared     = {res} 0.1752
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1751
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40067
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2}-.0000346{col 35}{space 2} .0000311{col 46}{space 1}   -1.11{col 55}{space 3}0.266{col 63}{space 4}-.0000956{col 76}{space 3} .0000264
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2}  .124065{col 35}{space 2} .0025294{col 46}{space 1}   49.05{col 55}{space 3}0.000{col 63}{space 4} .1191073{col 76}{space 3} .1290227
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0657914{col 35}{space 2} .0022933{col 46}{space 1}  -28.69{col 55}{space 3}0.000{col 63}{space 4}-.0702863{col 76}{space 3}-.0612964
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0504209{col 35}{space 2} .0015267{col 46}{space 1}  -33.03{col 55}{space 3}0.000{col 63}{space 4}-.0534132{col 76}{space 3}-.0474285
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3117382{col 35}{space 2} .0031945{col 46}{space 1}   97.59{col 55}{space 3}0.000{col 63}{space 4} .3054769{col 76}{space 3} .3179994
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000621{col 35}{space 2} .0000122{col 46}{space 1}    5.08{col 55}{space 3}0.000{col 63}{space 4} .0000382{col 76}{space 3}  .000086
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0022488{col 35}{space 2}  .002594{col 46}{space 1}    0.87{col 55}{space 3}0.386{col 63}{space 4}-.0028355{col 76}{space 3} .0073331
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .0797841{col 35}{space 2} .0125555{col 46}{space 1}    6.35{col 55}{space 3}0.000{col 63}{space 4} .0551753{col 76}{space 3} .1043929
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  8, 65750) ={res} 1745.48
+    {txt}   Model {char |} {res} 2241.63008     8   280.20376           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10554.9037 65750  .160530855           {txt}R-squared     = {res} 0.1752
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1751
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40066
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} -.000034{col 35}{space 2} .0000311{col 46}{space 1}   -1.09{col 55}{space 3}0.275{col 63}{space 4} -.000095{col 76}{space 3}  .000027
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1240834{col 35}{space 2} .0025294{col 46}{space 1}   49.06{col 55}{space 3}0.000{col 63}{space 4} .1191257{col 76}{space 3} .1290411
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0658121{col 35}{space 2} .0022934{col 46}{space 1}  -28.70{col 55}{space 3}0.000{col 63}{space 4}-.0703071{col 76}{space 3}-.0613171
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2} -.050412{col 35}{space 2} .0015267{col 46}{space 1}  -33.02{col 55}{space 3}0.000{col 63}{space 4}-.0534044{col 76}{space 3}-.0474196
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2}  .311701{col 35}{space 2} .0031946{col 46}{space 1}   97.57{col 55}{space 3}0.000{col 63}{space 4} .3054396{col 76}{space 3} .3179624
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000623{col 35}{space 2} .0000122{col 46}{space 1}    5.10{col 55}{space 3}0.000{col 63}{space 4} .0000384{col 76}{space 3} .0000863
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0022705{col 35}{space 2} .0025941{col 46}{space 1}    0.88{col 55}{space 3}0.381{col 63}{space 4}-.0028139{col 76}{space 3} .0073549
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2}  .001039{col 35}{space 2} .0007599{col 46}{space 1}    1.37{col 55}{space 3}0.172{col 63}{space 4}-.0004505{col 76}{space 3} .0025285
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .0768429{col 35}{space 2} .0127384{col 46}{space 1}    6.03{col 55}{space 3}0.000{col 63}{space 4} .0518757{col 76}{space 3} .1018102
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg wx_prcp day_of_week
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}  186424
+{txt}{hline 13}{char +}{hline 30}           F(  1,186422) ={res}    0.37
+    {txt}   Model {char |} {res} 1649.28068     1  1649.28068           {txt}Prob > F      = {res} 0.5413
+    {txt}Residual {char |} {res}  823819991186422  4419.11358           {txt}R-squared     = {res} 0.0000
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res}-0.0000
+    {txt}   Total {char |} {res}  823821640186423  4419.09872           {txt}Root MSE      = {res} 66.476
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     wx_prcp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}day_of_week {c |}{col 14}{res}{space 2} .0469395{col 26}{space 2}  .076835{col 37}{space 1}    0.61{col 46}{space 3}0.541{col 54}{space 4}-.1036553{col 67}{space 3} .1975343
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  29.2285{col 26}{space 2} .2697739{col 37}{space 1}  108.34{col 46}{space 3}0.000{col 54}{space 4} 28.69975{col 67}{space 3} 29.75725
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg wx_prcp monthly
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}  186424
+{txt}{hline 13}{char +}{hline 30}           F(  1,186422) ={res}    0.03
+    {txt}   Model {char |} {res} 130.092146     1  130.092146           {txt}Prob > F      = {res} 0.8638
+    {txt}Residual {char |} {res}  823821510186422  4419.12172           {txt}R-squared     = {res} 0.0000
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res}-0.0000
+    {txt}   Total {char |} {res}  823821640186423  4419.09872           {txt}Root MSE      = {res} 66.476
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     wx_prcp{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}monthly {c |}{col 14}{res}{space 2} .0012277{col 26}{space 2} .0071557{col 37}{space 1}    0.17{col 46}{space 3}0.864{col 54}{space 4}-.0127973{col 67}{space 3} .0152528
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 28.58755{col 26}{space 2} 4.527032{col 37}{space 1}    6.31{col 46}{space 3}0.000{col 54}{space 4} 19.71467{col 67}{space 3} 37.46043
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  9, 65749) ={res} 1575.68
+    {txt}   Model {char |} {res} 2270.34579     9  252.260643           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res}  10526.188 65749  .160096549           {txt}R-squared     = {res} 0.1774
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1773
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40012
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 8.62e-08{col 35}{space 2} .0000312{col 46}{space 1}    0.00{col 55}{space 3}0.998{col 63}{space 4} -.000061{col 76}{space 3} .0000612
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1255707{col 35}{space 2} .0025285{col 46}{space 1}   49.66{col 55}{space 3}0.000{col 63}{space 4} .1206149{col 76}{space 3} .1305265
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0666719{col 35}{space 2} .0022912{col 46}{space 1}  -29.10{col 55}{space 3}0.000{col 63}{space 4}-.0711626{col 76}{space 3}-.0621813
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0524463{col 35}{space 2} .0015322{col 46}{space 1}  -34.23{col 55}{space 3}0.000{col 63}{space 4}-.0554494{col 76}{space 3}-.0494432
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3151482{col 35}{space 2} .0032006{col 46}{space 1}   98.46{col 55}{space 3}0.000{col 63}{space 4} .3088749{col 76}{space 3} .3214214
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000589{col 35}{space 2} .0000122{col 46}{space 1}    4.82{col 55}{space 3}0.000{col 63}{space 4}  .000035{col 76}{space 3} .0000828
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2}  .002824{col 35}{space 2} .0025909{col 46}{space 1}    1.09{col 55}{space 3}0.276{col 63}{space 4}-.0022541{col 76}{space 3} .0079022
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0012261{col 35}{space 2}  .000759{col 46}{space 1}    1.62{col 55}{space 3}0.106{col 63}{space 4}-.0002616{col 76}{space 3} .0027138
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0011103{col 35}{space 2} .0000829{col 46}{space 1}  -13.39{col 55}{space 3}0.000{col 63}{space 4}-.0012728{col 76}{space 3}-.0009478
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .7694119{col 35}{space 2} .0532541{col 46}{space 1}   14.45{col 55}{space 3}0.000{col 63}{space 4}  .665034{col 76}{space 3} .8737898
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars ///
+{err}/ invalid name
+{txt}{search r(198):r(198);}
+
+{com}. 
+. business_review_count charlotte pittsburgh madison user_review_count wx_tmax ///
+{err}unrecognized command:  business_review_count
+{txt}{search r(199):r(199);}
+
+{com}. 
+. wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & ///
+{err}unrecognized command:  wx_tmin
+{txt}{search r(199):r(199);}
+
+{com}. 
+. wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0)
+{err}unrecognized command:  wx_fog_all
+{txt}{search r(199):r(199);}
+
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count business_pricerange day_of_week if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0 & restaurant == 1)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   65759
+{txt}{hline 13}{char +}{hline 30}           F(  8, 65750) ={res} 1745.48
+    {txt}   Model {char |} {res} 2241.63008     8   280.20376           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 10554.9037 65750  .160530855           {txt}R-squared     = {res} 0.1752
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.1751
+    {txt}   Total {char |} {res} 12796.5338 65758   .19460041           {txt}Root MSE      = {res} .40066
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} -.000034{col 35}{space 2} .0000311{col 46}{space 1}   -1.09{col 55}{space 3}0.275{col 63}{space 4} -.000095{col 76}{space 3}  .000027
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1240834{col 35}{space 2} .0025294{col 46}{space 1}   49.06{col 55}{space 3}0.000{col 63}{space 4} .1191257{col 76}{space 3} .1290411
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0658121{col 35}{space 2} .0022934{col 46}{space 1}  -28.70{col 55}{space 3}0.000{col 63}{space 4}-.0703071{col 76}{space 3}-.0613171
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2} -.050412{col 35}{space 2} .0015267{col 46}{space 1}  -33.02{col 55}{space 3}0.000{col 63}{space 4}-.0534044{col 76}{space 3}-.0474196
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2}  .311701{col 35}{space 2} .0031946{col 46}{space 1}   97.57{col 55}{space 3}0.000{col 63}{space 4} .3054396{col 76}{space 3} .3179624
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000623{col 35}{space 2} .0000122{col 46}{space 1}    5.10{col 55}{space 3}0.000{col 63}{space 4} .0000384{col 76}{space 3} .0000863
+{txt}{space 2}business_pricerange {c |}{col 23}{res}{space 2} .0022705{col 35}{space 2} .0025941{col 46}{space 1}    0.88{col 55}{space 3}0.381{col 63}{space 4}-.0028139{col 76}{space 3} .0073549
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2}  .001039{col 35}{space 2} .0007599{col 46}{space 1}    1.37{col 55}{space 3}0.172{col 63}{space 4}-.0004505{col 76}{space 3} .0025285
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .0768429{col 35}{space 2} .0127384{col 46}{space 1}    6.03{col 55}{space 3}0.000{col 63}{space 4} .0518757{col 76}{space 3} .1018102
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. reg logstars wx_prcp votescool votesfunny votesuseful business_stars business_review_count charlotte pittsburgh madison user_review_count wx_tmax wx_tmin day_of_week monthly if (wx_snwd == 0 & wx_snow == 0 & wx_fog_all == 0& wx_hail == 0 & wx_wind_high == 0)
+
+      {txt}Source {c |}       SS       df       MS              Number of obs ={res}   94929
+{txt}{hline 13}{char +}{hline 30}           F( 14, 94914) ={res} 2108.63
+    {txt}   Model {char |} {res} 4689.35095    14  334.953639           {txt}Prob > F      = {res} 0.0000
+    {txt}Residual {char |} {res} 15077.0234 94914   .15884931           {txt}R-squared     = {res} 0.2372
+{txt}{hline 13}{char +}{hline 30}           Adj R-squared = {res} 0.2371
+    {txt}   Total {char |} {res} 19766.3744 94928  .208224911           {txt}Root MSE      = {res} .39856
+
+{txt}{hline 22}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}             logstars{col 23}{c |}      Coef.{col 35}   Std. Err.{col 47}      t{col 55}   P>|t|{col 63}     [95% Con{col 76}f. Interval]
+{hline 22}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 14}wx_prcp {c |}{col 23}{res}{space 2} 9.51e-06{col 35}{space 2} .0000269{col 46}{space 1}    0.35{col 55}{space 3}0.724{col 63}{space 4}-.0000433{col 76}{space 3} .0000623
+{txt}{space 12}votescool {c |}{col 23}{res}{space 2} .1139515{col 35}{space 2} .0020358{col 46}{space 1}   55.97{col 55}{space 3}0.000{col 63}{space 4} .1099613{col 76}{space 3} .1179417
+{txt}{space 11}votesfunny {c |}{col 23}{res}{space 2}-.0584168{col 35}{space 2}  .001839{col 46}{space 1}  -31.77{col 55}{space 3}0.000{col 63}{space 4}-.0620212{col 76}{space 3}-.0548123
+{txt}{space 10}votesuseful {c |}{col 23}{res}{space 2}-.0516711{col 35}{space 2} .0012559{col 46}{space 1}  -41.14{col 55}{space 3}0.000{col 63}{space 4}-.0541327{col 76}{space 3}-.0492096
+{txt}{space 7}business_stars {c |}{col 23}{res}{space 2} .3275493{col 35}{space 2} .0021513{col 46}{space 1}  152.26{col 55}{space 3}0.000{col 63}{space 4} .3233328{col 76}{space 3} .3317658
+{txt}business_review_count {c |}{col 23}{res}{space 2} .0000749{col 35}{space 2} 9.47e-06{col 46}{space 1}    7.91{col 55}{space 3}0.000{col 63}{space 4} .0000563{col 76}{space 3} .0000935
+{txt}{space 12}charlotte {c |}{col 23}{res}{space 2}-.0210618{col 35}{space 2} .0370087{col 46}{space 1}   -0.57{col 55}{space 3}0.569{col 63}{space 4}-.0935984{col 76}{space 3} .0514749
+{txt}{space 11}pittsburgh {c |}{col 23}{res}{space 2}-.0243576{col 35}{space 2} .0370386{col 46}{space 1}   -0.66{col 55}{space 3}0.511{col 63}{space 4}-.0969529{col 76}{space 3} .0482377
+{txt}{space 14}madison {c |}{col 23}{res}{space 2}-.0247802{col 35}{space 2} .0371005{col 46}{space 1}   -0.67{col 55}{space 3}0.504{col 63}{space 4}-.0974967{col 76}{space 3} .0479362
+{txt}{space 4}user_review_count {c |}{col 23}{res}{space 2}  .000042{col 35}{space 2} 3.81e-06{col 46}{space 1}   11.02{col 55}{space 3}0.000{col 63}{space 4} .0000345{col 76}{space 3} .0000495
+{txt}{space 14}wx_tmax {c |}{col 23}{res}{space 2}-.0000151{col 35}{space 2} .0000423{col 46}{space 1}   -0.36{col 55}{space 3}0.722{col 63}{space 4}-.0000981{col 76}{space 3} .0000679
+{txt}{space 14}wx_tmin {c |}{col 23}{res}{space 2} .0000105{col 35}{space 2}  .000043{col 46}{space 1}    0.24{col 55}{space 3}0.807{col 63}{space 4}-.0000738{col 76}{space 3} .0000948
+{txt}{space 10}day_of_week {c |}{col 23}{res}{space 2} .0002991{col 35}{space 2} .0006344{col 46}{space 1}    0.47{col 55}{space 3}0.637{col 63}{space 4}-.0009443{col 76}{space 3} .0015424
+{txt}{space 14}monthly {c |}{col 23}{res}{space 2}-.0012734{col 35}{space 2} .0000696{col 46}{space 1}  -18.29{col 55}{space 3}0.000{col 63}{space 4}-.0014099{col 76}{space 3}-.0011369
+{txt}{space 16}_cons {c |}{col 23}{res}{space 2} .8475854{col 35}{space 2} .0549898{col 46}{space 1}   15.41{col 55}{space 3}0.000{col 63}{space 4}  .739806{col 76}{space 3} .9553648
+{txt}{hline 22}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{com}. 
